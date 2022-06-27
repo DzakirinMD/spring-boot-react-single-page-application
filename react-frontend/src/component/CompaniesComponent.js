@@ -12,7 +12,8 @@ class CompaniesComponent extends React.Component {
 
     // use componentDidMount lifecycle method
     componentDidMount() {
-        CompaniesService.getCompanies().then((response) => {
+        CompaniesService.getCompanies()
+            .then((response) => {
             this.setState({ companies: response.data})
         });
     }

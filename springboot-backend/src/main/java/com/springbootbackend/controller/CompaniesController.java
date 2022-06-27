@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+// in CrossOrigin put which URL the spring-boot app getting the url.
+// in this case http://localhost:3000/ since React run on this port.
+@CrossOrigin(origins = "http://localhost:3000/")
 @RestController
 @RequestMapping("api/v1/companies")
 public class CompaniesController {
@@ -22,9 +25,6 @@ public class CompaniesController {
         this.companiesRepository = companiesRepository;
     }
 
-    // in CrossOrigin put which URL the spring-boot app getting the url.
-    // in this case http://localhost:3000/ since React run on this port.
-    @CrossOrigin(origins = "http://localhost:3000/")
     @GetMapping("/get-all-companies")
     public List<Companies> getAllCompanies() {
         return this.companiesRepository.findAll();
